@@ -6,7 +6,7 @@ folder=$(date +"%Y-%m-%d")
 if [[ ! -d $path/$folder ]]
     then
         echo "Creating Dir..."
-        mkdir $path/$folder && chmod 0777 $path/$folder || echo "Error in creating folder" && exit 1
+        mkdir $path/$folder && chmod 0777 $path/$folder || (echo "Error in creating folder" && exit 1)
         echo "Done!"
     else
         echo "Folder already exist"
