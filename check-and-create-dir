@@ -1,0 +1,12 @@
+#!/bin/bash
+
+fname=$(date +"%Y-%m-%d")
+
+if [[ ! -d "/home/pbdev/bashtest/$fname" ]]
+    then
+        echo "Creating Dir..."
+        mkdir /home/pbdev/bashtest/$fname && chmod 0777 $fname
+        echo "Done!"
+    else
+        echo "Folder already exist"
+fi
