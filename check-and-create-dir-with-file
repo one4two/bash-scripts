@@ -1,0 +1,18 @@
+#!/bin/bash
+
+path="/home/pbdev/bashtest"
+folder=$(date +"%Y-%m-%d")
+
+if [[ ! -d $path/$folder ]]
+    then
+        echo "Creating Dir..."
+        mkdir $path/$folder && chmod 0777 $path/$folder || (echo "Error in creating folder" && exit 1)
+        echo "Dir created!"
+        cd $path/$folder
+        echo "Creating index.php..."
+        echo  "<?php echo \"<h2>Hello world!</h2>\"?>" > index.php
+        echo "index.php created!"
+        echo "Done!"
+    else
+        echo "Folder already exist"
+fi
