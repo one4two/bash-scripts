@@ -1,0 +1,20 @@
+#!/bin/bash
+
+count=$1
+
+if [[ ! $count  ]]
+then
+    echo "Usage: $0 <num>"
+    exit -1
+fi
+
+echo "You want to create $count folders"
+
+year=$(date +"%Y")
+month=$(date +"%m")
+day=$(date +"%d")
+
+for (( i=$day; i > ($day-$count); i-- ))
+do
+    mkdir $year-$month-$i
+done
