@@ -1,3 +1,11 @@
-#!/bin/bash
+#/bin/bash
 
-# @TODO
+# @todo
+
+migrations=`ls *.sql`
+
+for table in $migrations
+  do
+    echo "Executing: $table"
+    docker exec -i mysql mysql -uroot -p1 parser < $table
+  done
