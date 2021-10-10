@@ -3,7 +3,7 @@
 while true; do
   read -p "All data in tables will be destroyed. Are you sure? (yes/no) " yn
     case $yn in
-      yes )
+      [Yy]* )
         migrations=`ls *.sql`
 
         for table in $migrations
@@ -12,7 +12,7 @@ while true; do
             docker exec -i mysql mysql -uroot -p1 parser < $table
           done
           break;;
-      no ) exit;;
+      [Nn]* ) exit;;
       * ) echo "Please answer yes on no.";;
     esac
 done
